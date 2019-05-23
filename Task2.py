@@ -22,7 +22,7 @@ Print a message:
 September 2016.".
 """
 
-calls09 = list([item for item in calls if "09-2016" in item[2]]) #O(n)
+calls09 = [item for item in calls if "09-2016" in item[2]] #O(n)
 
 callers = dict()
 max_phone, max_calls = "", 0
