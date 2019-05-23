@@ -4,6 +4,7 @@ It's ok if you don't understand how to read files.
 """
 import time
 import csv
+
 start = time.time()
 
 with open('texts.csv', 'r') as f:
@@ -46,22 +47,23 @@ to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
 banglore_calls = [item for item in calls if "(080)" in item[0][:5]]  # O(n)
+
 call_area_codes = set()
-for item in banglore_calls: #O(n) + O(2)
+
+for item in banglore_calls:  # O(n) + O(2)
     if item[1][:2] == "(0":
         x = item[1].rfind(")")
-        call_area_codes.add(item[1][:x+1])
+        call_area_codes.add(item[1][:x + 1])
     if item[1][0] in ["7", "8", "9"]:
         call_area_codes.add(item[1][:4])
     if item[1][:3] == "140":
         call_area_codes.add(item[1][:3])
 
 call_area_codes = list(call_area_codes)
-call_area_codes.sort() #O(n)
+call_area_codes.sort()  # O(n)
 print("The numbers called by people in Bangalore have codes:")
-print("\n".join(call_area_codes)) #O(n)
+print("\n".join(call_area_codes))  # O(n)
 
-calls_to_banglore = [item for item in banglore_calls if "(080)" in item[1][:5]] #O(n)
+calls_to_banglore = [item for item in banglore_calls if "(080)" in item[1][:5]]  # O(n)
 percentage = len(calls_to_banglore) / len(banglore_calls) * 100
 print("{:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(percentage))
-

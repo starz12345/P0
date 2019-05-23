@@ -4,6 +4,7 @@ It's ok if you don't understand how to read files.
 """
 import time
 import csv
+
 start = time.time()
 with open('texts.csv', 'r') as f:
     reader = csv.reader(f)
@@ -12,7 +13,6 @@ with open('texts.csv', 'r') as f:
 with open('calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
-
 
 """
 TASK 1:
@@ -32,5 +32,3 @@ print("There are {} different telephone numbers in the records.".format(len(tele
 
 end = time.time()
 print("{:.2f} seconds".format(end - start))
-
-

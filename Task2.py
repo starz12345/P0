@@ -28,7 +28,7 @@ call_max = calls09[0].copy()
 call_max.extend((0, 0))
 received_max = call_max.copy()
 
-for item in calls09:                         # O(n ^ 2) + O(7)
+for item in calls09:  # O(n ^ 2) + O(7)
     call_sum = 0
     received_sum = 0
     for value in calls09:
@@ -43,7 +43,6 @@ for item in calls09:                         # O(n ^ 2) + O(7)
     if received_sum > received_max[5]:
         received_max = item
 
-
 max_phone = ""
 max_time = 0
 if sum(call_max[4:]) > sum(received_max[4:]):
@@ -54,4 +53,3 @@ else:
     max_time = sum(received_max[4:])
 
 print("{} spent the longest time, {} seconds, on the phone during September 2016.".format(max_phone, max_time))
-

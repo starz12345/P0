@@ -4,6 +4,7 @@ It's ok if you don't understand how to read files.
 """
 import time
 import csv
+
 start = time.time()
 
 with open('texts.csv', 'r') as f:
@@ -27,12 +28,14 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
-callers = [item[0] for item in calls] #O(n)
-text_receivers = [item[1] for item in texts]  #O(n)
-call_receivers = [item[1] for item in calls]  #O(n)
-telemarketers = set([item[0] for item in calls if item[0] not in text_receivers and item[0] not in call_receivers])  #O(n)
-telemarketers = list(telemarketers) #O(1)
-telemarketers.sort() #O(n)
-print("These numbers could be telemarketers: ") #O(1)
-print("\n".join(telemarketers))  #O(n)
+callers = [item[0] for item in calls]  # O(n)
+text_receivers = [item[1] for item in texts]  # O(n)
+call_receivers = [item[1] for item in calls]  # O(n)
+telemarketers = set([item[0] for item in calls if item[0] not in text_receivers and item[0] not in call_receivers])  # O(n)
 
+telemarketers = list(telemarketers)  # O(1)
+
+telemarketers.sort()  # O(n)
+
+print("These numbers could be telemarketers: ")  # O(1)
+print("\n".join(telemarketers))  # O(n)
