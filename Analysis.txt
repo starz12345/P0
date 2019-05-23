@@ -10,8 +10,9 @@ The worst case scenario of this task is O(2n) + O(7) = O(2n + 7), the runtime wi
 The worst case complexity of the algorithm will be O(n).
 
 #TASK 3
-The worst case scenario of this task is O(n log n) + O(n) + O(7) = O(nlogn + 4n + 7), the runtime of the program will increase with the size of input.
-As n becomes larger the constants will become insignificant The final complexity of the algorithm will be log-linear O(n log n).
+The worst case scenario of this task is O(n log n) + O(n) + O(7) = O(nlogn + 4n + 7), the runtime of the program will increase with the size of input,
+which the sorting algorithm will handle.
+As n becomes larger the constants will become insignificant, The final complexity of the algorithm will be log-linear O(n log n).
 
 
 #TASK 4
