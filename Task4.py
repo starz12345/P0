@@ -35,7 +35,7 @@ telemarketers = set([item[0] for item in calls if item[0] not in text_receivers 
 
 telemarketers = list(telemarketers)  # O(1)
 
-telemarketers.sort()  # O(n)
+telemarketers.sort()  # O(n log n)
 
 print("These numbers could be telemarketers: ")  # O(1)
 print("\n".join(telemarketers))  # O(n)

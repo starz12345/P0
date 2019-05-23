@@ -60,7 +60,7 @@ for item in banglore_calls:  # O(n) + O(2)
         call_area_codes.add(item[1][:3])
 
 call_area_codes = list(call_area_codes)
-call_area_codes.sort()  # O(n)
+call_area_codes.sort()  # O(n log n)
 print("The numbers called by people in Bangalore have codes:")
 print("\n".join(call_area_codes))  # O(n)
 

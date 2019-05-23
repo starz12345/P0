@@ -22,34 +22,19 @@ Print a message:
 September 2016.".
 """
 
-calls09 = [item for item in calls if "09-2016" in item[2]]  # O(n)
+calls09 = list([item for item in calls if "09-2016" in item[2]]) #O(n)
 
-call_max = calls09[0].copy()
-call_max.extend((0, 0))
-received_max = call_max.copy()
+callers = dict()
+max_phone, max_calls = "", 0
 
-for item in calls09:  # O(n ^ 2) + O(7)
-    call_sum = 0
-    received_sum = 0
-    for value in calls09:
-        if value[0] == item[0]:
-            call_sum += int(value[3])
-        if value[1] == item[1]:
-            received_sum += int(value[3])
-    item.append(call_sum)
-    item.append(received_sum)
-    if call_sum > call_max[4]:
-        call_max = item
-    if received_sum > received_max[5]:
-        received_max = item
+for item in calls09: #O(n)
+    callers[item[0]] = callers.get(item[0], 0) + int(item[3])
+    callers[item[1]] = callers.get(item[1], 0) + int(item[3])
 
-max_phone = ""
-max_time = 0
-if sum(call_max[4:]) > sum(received_max[4:]):
-    max_phone = call_max[0]
-    max_time = sum(call_max[4:])
-else:
-    max_phone = received_max[0]
-    max_time = sum(received_max[4:])
+    if callers[item[0]] > max_calls:
+        max_phone, max_calls = item[0], callers[item[0]]
 
-print("{} spent the longest time, {} seconds, on the phone during September 2016.".format(max_phone, max_time))
+    if callers[item[1]] > max_calls:
+        max_phone, max_calls = item[1], callers[item[1]]
+
+print("{} spent the longest time, {} seconds, on the phone during September 2016.".format(max_phone, max_calls))
